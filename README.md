@@ -11,8 +11,11 @@ For back-translation, we need to translate the sentences and save them as files.
 CUDA_VISIBLE_DEVICES=0 python translation_dataset.py 
 --data_dir=$YOUR_GLUE_DATASET_PATH$ 
 --task_name=$GLUE_TASK_NAME$ 
---batch_size=100
+--model_path_tmp=$YOUR_MODEL_META_PATH$ 
+--batch_size=100 
 ```
+YOUR_MODEL_META_PATH is a path like "data/opus-mt-{}-{}", where it should contain opus-mt-de-en, opus-mt-en-de, opus-mt-en-zh, opus-mt-zh-en. You can download them from [https://huggingface.co/Helsinki-NLP](https://huggingface.co/Helsinki-NLP)
+
 requirements for back-translation:
 - torch==1.7.0
 - transformer==4.2.2
