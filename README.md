@@ -8,11 +8,10 @@ This is the PyTorch implementation of the paper: Bi-Granularity Contrastive Lear
 
 For back-translation, we need to translate the sentences and save them as files.
 ```bash
-from translation_with_Marian import init_models_tokenizers, gen_augs
-
-init_models_tokenizers(device='cuda', model_path_tmp='/opus-mt-{}-{}') # set using CPU or GPU, and set your model path
-generated_sentences_pairs = gen_augs(sentences, device='cuda') # set using CPU or GPU, and sentences will be used to generate back-translation sentences pairs
-# result will be type of: List[List[str]]
+CUDA_VISIBLE_DEVICES=0 python translation_dataset.py 
+--data_dir=$YOUR_GLUE_DATASET_PATH$ 
+--task_name=$GLUE_TASK_NAME$ 
+--batch_size=100
 ```
 requirements for back-translation:
 - torch==1.7.0
